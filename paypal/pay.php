@@ -12,31 +12,34 @@ if(isset($_GET['approved'])){
 	$approved = $_GET['approved'] === 'true';
 
 	if ($approved) {
-		
-		$payerId= $_GET['PayerID'];
 
+		if(! isset($_GET['express'])){
 
+			$payerId= $_GET['PayerID'];
 
-		// Get payment_id from database where hash = session hash
-		//$_SESSION['paypal_hash'];
+			// Get payment_id from database where hash = session hash
+			//$_SESSION['paypal_hash'];
 
-		// Get the PayPal payment
-		$payment = Payment::get($_GET['paymentId'],$api);
+			// Get the PayPal payment
+			$payment = Payment::get($_GET['paymentId'],$api);
 
-		$execution = new PaymentExecution();
-		$execution->setPayerId($payerId);
+			$execution = new PaymentExecution();
+			$execution->setPayerId($payerId);
 
-		try{
+			try{
 
-			// Execute PayPal payment (charge)
-			$payment->execute($execution, $api);
+				// Execute PayPal payment (charge)
+				$payment->execute($execution, $api);
 
-		}catch( PayPalConnectionException $e){
+			}catch( PayPalConnectionException $e){
 
-			// Log an error
-			header('Location: ../paypal/error.php');
+				// Log an error
+				header('Location: ../paypal/error.php');
 
+			}
 		}
+		
+		
 
 		//Update transaction on database
 		

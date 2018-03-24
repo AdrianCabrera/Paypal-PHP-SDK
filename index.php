@@ -53,14 +53,15 @@ if(isset($_REQUEST["logout"])){
 			<div class="card-body">
 				<h4 class="card-title">Via Javascript</h4>
 				<p class="card-text">
-					<script async="async" src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=BUSINESS_EMAIL_ID" 
+					<script async="async" src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=BUSINESS_ACCOUNT_EMAIL_ID" 
 					data-button="buynow" 
 					data-name="Membership" 
 					data-amount="1.00" 
 					data-currency="EUR" 
 					data-shipping="0.00" 
 					data-tax="0.00" 
-					data-callback="http://localhost/paypal/pay.php?approved=true" 
+					data-callback="http://localhost/paypal/pay.php?approved=true&callback=true" 
+					data-return="http://localhost/paypal/pay.php?approved=true&express=true"
 					data-env="sandbox"
 					></script>
 				</p>
