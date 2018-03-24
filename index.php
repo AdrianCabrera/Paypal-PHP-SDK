@@ -10,6 +10,7 @@ require_once 'app/init.php';
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Paypal PHP SDK</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" integrity="sha256-BJ/G+e+y7bQdrYkS2RBTyNfBHpA9IuGaPmf9htub5MQ=" crossorigin="anonymous" />
 	<style>
 	.card-img-custom{
 		object-fit: cover;
@@ -61,7 +62,14 @@ require_once 'app/init.php';
 			</div>
 		</div>						
 		<?php else: ?>
-			<p>You are a member! </p>
+		<div class="card text-white bg-info mt-5">
+		  <div class="card-body">
+			<h4 class="card-title">You are a member</h4>
+			<p class="card-text text-center mt-5">
+				<a href="http://localhost?logout=true" class="text-white"><span class="oi oi-account-logout" title="account-logout" aria-hidden="true"></span><br/>Log out</a>
+			</p>
+		  </div>
+		</div>
 		<?php endif; ?>
 	</div>
 </body>
