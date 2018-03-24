@@ -1,6 +1,11 @@
 <?php
-
 require_once 'app/init.php';
+
+if(isset($_REQUEST["logout"])){
+	$_SESSION['member'] = 0;
+	header('Location: '.$_SERVER["PHP_SELF"]);
+}
+
 ?>
 
 <!DOCTYPE html>
